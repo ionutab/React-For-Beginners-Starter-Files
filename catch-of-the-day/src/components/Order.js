@@ -14,6 +14,20 @@ class Order extends React.Component {
 			return (
 				<li key="key" className="order-item">
 					Sorry {fish ? fish.name : "fish"} is no longer available
+					<button
+						onClick={() => {
+							this.props.removeFromOrder(key);
+						}}
+					>
+						remove
+					</button>
+					<button
+						onClick={() => {
+							this.props.subtractFromOrder(key);
+						}}
+					>
+						subtract
+					</button>
 				</li>
 			);
 		}
@@ -21,6 +35,20 @@ class Order extends React.Component {
 			<li key={key} className="order-item">
 				🦈{count} lbs {fish.name}
 				<b>{formatPrice(count * fish.price)}</b>
+				<button
+					onClick={() => {
+						this.props.removeFromOrder(key);
+					}}
+				>
+					remove
+				</button>
+				<button
+					onClick={() => {
+						this.props.subtractFromOrder(key);
+					}}
+				>
+					subtract
+				</button>
 			</li>
 		);
 	};
